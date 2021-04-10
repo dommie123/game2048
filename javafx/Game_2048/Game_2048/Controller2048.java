@@ -1,5 +1,3 @@
-
-
 import java.awt.event.KeyEvent;
 
 import javafx.application.Platform;
@@ -13,6 +11,7 @@ public class Controller2048 {
 
 	@FXML
     private Pane GamePane;
+	
 	@FXML
     private GridPane grid;
 	static final int GRID_SIZE = 4;
@@ -46,7 +45,4 @@ public class Controller2048 {
 	public void initialize() {
 		initializeGrid();
 	}
-	
-	
-	
 }

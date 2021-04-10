@@ -19,9 +19,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
+import com.game.player.*;
+
 public class Grid extends GridPane{
 
 	//variables
+	public static Player player = new Player("Player 1");
 	public static StackPane[][] boxes;	//double array of Panes for the board
 	int gridSize;
 	int boxSize;
@@ -313,6 +316,8 @@ public class Grid extends GridPane{
 		for(int i=0; i<4; i++)
 			for(int j=0; j<3; j++)
 			if(block_Data[i][j]==block_Data[i][j+1]&&block_Data[i][j]!=0){
+				player.setScore(player.getScore() + block_Data[i][j]);
+				System.out.println(player.getScore());
 				block_Data[i][j]=block_Data[i][j]*2;
 				block_Data[i][j+1]=0;
 			}
