@@ -1,3 +1,5 @@
+package com.game.swing;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -96,6 +98,7 @@ public class Frame extends JFrame {
 	}
 
 	public static void initData() {
+		player.setScore(0);
 		for (int n = 0; n < 2; n++) {
 			createOneRandomNumber();
 		}

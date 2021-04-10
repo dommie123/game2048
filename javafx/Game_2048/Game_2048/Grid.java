@@ -1,4 +1,5 @@
 
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.KeyAdapter;
@@ -221,7 +222,7 @@ public class Grid extends GridPane{
 			for(int j=0; j<4; j++){
 				if(block_Data[i][j] == 2048)
 				{
-					int result = JOptionPane.showConfirmDialog(null, "You win. Again？", "Result",JOptionPane.YES_NO_OPTION);
+					int result = JOptionPane.showConfirmDialog(null, "You win! Your score was " + player.getScore() + "! Play again?", "Result",JOptionPane.YES_NO_OPTION);
 					if(result == 0) {
 						resetBlocks();
 						initData();
@@ -234,7 +235,7 @@ public class Grid extends GridPane{
 		}
 		
 		if(block_DataIsFull() && !canMove()){
-			int result = JOptionPane.showConfirmDialog(null, "You lose. Again？", "Result", JOptionPane.YES_NO_OPTION);
+			int result = JOptionPane.showConfirmDialog(null, "You lose. Your score was " + player.getScore() + ". Play again?", "Result", JOptionPane.YES_NO_OPTION);
 			if(result == 0)	{
 				resetBlocks();
 				initData();
@@ -316,7 +317,7 @@ public class Grid extends GridPane{
 		for(int i=0; i<4; i++)
 			for(int j=0; j<3; j++)
 			if(block_Data[i][j]==block_Data[i][j+1]&&block_Data[i][j]!=0){
-				player.setScore(player.getScore() + block_Data[i][j]);
+				player.setScore(player.getScore() + block_Data[i][j] * 10);
 				System.out.println(player.getScore());
 				block_Data[i][j]=block_Data[i][j]*2;
 				block_Data[i][j+1]=0;
@@ -358,6 +359,10 @@ public class Grid extends GridPane{
 	// getters
     StackPane getBox(int row, int column) {
         return boxes[row][column];
+    }
+    
+    public static Player getPlayer() {
+    	return player;
     }
 
     // setters

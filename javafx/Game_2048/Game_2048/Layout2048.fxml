@@ -27,6 +27,6 @@
             </GridPane>
          </children>
       </Pane>
-      <Label id="lbPlayer" fx:id="lbPlayer" layoutX="329.0" layoutY="68.0" text="Player 1                  Score: 0" />
+      <Label id="lbPlayer" fx:id="lbPlayer" layoutX="329.0" layoutY="68.0" onDragDetected="#initialize" text="Player 1                  Score: 0" />
    </children>
 </AnchorPane>

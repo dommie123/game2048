@@ -1,4 +1,7 @@
+
 import java.awt.event.KeyEvent;
+
+import com.game.player.Player;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -6,9 +9,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.control.Label;
 
 public class Controller2048 {
-
+	
 	@FXML
     private Pane GamePane;
 	
@@ -17,6 +21,11 @@ public class Controller2048 {
 	static final int GRID_SIZE = 4;
 	static final int BOX_SIZE = 117;
 	
+	private Player player;
+	
+	@FXML
+	private Label lbPlayer;
+
 	public void initializeGrid(){
 		//*remove the grid I already have
     	while(grid.getRowConstraints().size() > 0){
@@ -40,6 +49,11 @@ public class Controller2048 {
                 + "-fx-border-radius: 10px;\n";
     	grid.setStyle(cssDefault);
     	GamePane.getChildren().addAll(grid);
+    	
+    	player = ((Grid) grid).getPlayer();
+    	lbPlayer = new Label(player.toString());
+    	
+    	GamePane.getChildren().add(lbPlayer);
 	}
 	
 	public void initialize() {

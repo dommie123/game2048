@@ -1,3 +1,4 @@
+package com.game.swing;
 
 public class Maingame {
 		public static void main(String[] args) {
