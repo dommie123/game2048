@@ -72,11 +72,12 @@ public class Frame extends JFrame {
 	}
 
 	private void initBasic() {
-		this.setTitle("Game2048");
+		this.setIconImage(Toolkit.getDefaultToolkit().getImage(Frame.class.getResource("/img/logo.png")));
+		this.setTitle("2048 Game");
 		this.setSize(750, 820); 
 		this.setLocation(700, 100); 
 		getContentPane().setLayout(null); 
-lbPlayer.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 16));
+		lbPlayer.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 16));
 				
 		lbPlayer.setBounds(326, 739, 377, 36);
 		getContentPane().add(lbPlayer);
