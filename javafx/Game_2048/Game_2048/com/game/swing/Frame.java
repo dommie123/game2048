@@ -76,7 +76,8 @@ public class Frame extends JFrame {
 		this.setSize(750, 820); 
 		this.setLocation(700, 100); 
 		getContentPane().setLayout(null); 
-		
+lbPlayer.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 16));
+				
 		lbPlayer.setBounds(326, 739, 377, 36);
 		getContentPane().add(lbPlayer);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE); 
@@ -128,10 +129,27 @@ public class Frame extends JFrame {
 
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				if (block_Data[i][j] != 0)
+				if (block_Data[i][j] != 0) {
 					block_Lable[i][j].setText(block_Data[i][j] + "");
-				else
+					if (block_Data[i][j] == 2 || block_Data[i][j] == 4) {
+						block_Lable[j][i].setForeground(Color.darkGray); 
+						block_Lable[j][i].setBackground(Color.lightGray);
+					} else if (block_Data[i][j] == 8 || block_Data[i][j] == 16) {
+						block_Lable[i][j].setBackground(Color.getColor("0xE9B582", Color.orange));
+						block_Lable[i][j].setForeground(Color.white);
+					} else if (block_Data[i][j] == 32 || block_Data[i][j] == 64) {
+						block_Lable[i][j].setBackground(Color.getColor("0xE78367", Color.red.brighter()));
+						block_Lable[i][j].setForeground(Color.white);
+					} else if (block_Data[i][j] >= 128) {
+						block_Lable[i][j].setBackground(Color.getColor("0xE8D180", Color.yellow.brighter()));
+						block_Lable[i][j].setForeground(Color.white);
+					}
+				}
+				else {
 					block_Lable[i][j].setText(" ");
+					block_Lable[j][i].setForeground(Color.darkGray); 
+					block_Lable[j][i].setBackground(Color.lightGray);
+				}
 			}
 		}
 	}
