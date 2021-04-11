@@ -52,11 +52,14 @@ public class Controller2048 {
     	
     	player = ((Grid) grid).getPlayer();
     	lbPlayer = new Label(player.toString());
-    	
-    	GamePane.getChildren().add(lbPlayer);
+    	lbPlayer.setVisible(true);
 	}
 	
 	public void initialize() {
 		initializeGrid();
+	}
+	
+	public void updateLabel() {
+		lbPlayer.setText(player.toString());
 	}
 }

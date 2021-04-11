@@ -361,7 +361,7 @@ public class Grid extends GridPane{
         return boxes[row][column];
     }
     
-    public static Player getPlayer() {
+    public Player getPlayer() {
     	return player;
     }
 
